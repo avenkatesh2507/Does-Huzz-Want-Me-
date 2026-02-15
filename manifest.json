@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Does Huzz Want Me?",
+  "version": "2.0",
+  "description": "Analyzes Instagram DMs with AI sentiment.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://www.instagram.com/direct/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/direct/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
